@@ -7,7 +7,7 @@ This folder contains the files responsible for backend service.
 
 |                |DONE|
 |----------------|-------------------------------|
-|Write basic Flask API|`False`            |
+|Write basic Flask API|`True`            |
 |Define API routes|`False`              |
 |Initialize MongoDB|`False`   |
 |Create connections between Server and DB|`False`   |
