@@ -3,6 +3,7 @@ from flask import Flask, jsonify, request
 app = Flask(__name__)
 
 __food_types = ["tartos", "fuszer", "ital"]
+
 foods = {
     "barack":{
         "quantity": 10,
@@ -30,14 +31,10 @@ foods = {
     }
 }
 
-@app.route("/foods")
-def hello():
-    return"Hello VirtualSpice!"
-
 
 @app.route("/api/virtualspice")
 def virtualspice():
-    return "virtualspice"
+    return jsonify(foods)
 
 @app.route("/api/shoppinglist")
 def shoppinglist():
