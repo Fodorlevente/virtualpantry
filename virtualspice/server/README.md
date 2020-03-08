@@ -2,6 +2,9 @@
 
 This folder contains the files responsible for backend service.
 
+Website for the mongoDB cluster:
+https://cloud.mongodb.com/v2/5e65209a210aa11167fd3333#clusters
+
 
 ## TODO
 
