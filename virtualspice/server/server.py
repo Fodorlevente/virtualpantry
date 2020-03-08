@@ -2,36 +2,6 @@ from flask import Flask, jsonify, request
 
 app = Flask(__name__)
 
-__food_types = ["tartos", "fuszer", "ital"]
-
-foods = {
-    "barack":{
-        "quantity": 10,
-        "exp date": "2020. 04.02.",
-        "location": "spar",
-        "type": __food_types[0]
-    },
-    "alma":{
-        "quantity": 10,
-        "exp date": "2020. 04.02.",
-        "location": "spar",
-        "type":  __food_types[0]
-    },
-    "kóla":{
-        "quantity": 10,
-        "exp date": "2020. 04.02.",
-        "location": "spar",
-        "type": __food_types[0]
-    },
-    "kenyér":{
-        "quantity": 1,
-        "exp date": "2020. 04.02.",
-        "location": "spar",
-        "type":  __food_types[0]
-    }
-}
-
-
 @app.route("/api/virtualspice")
 def virtualspice():
     return jsonify(foods)
