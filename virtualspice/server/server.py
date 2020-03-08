@@ -1,4 +1,6 @@
 from flask import Flask, jsonify, request
+from DBConnection import DBConnection
+import pymongo
 
 app = Flask(__name__)
 
@@ -18,11 +20,12 @@ def recepies():
 def login():
     return "login"
 
-
 if __name__ == "__main__":
-    app.run(port=5000)
-
-
-
+    try:
+        my_conn = DBConnection("virtualspiceapp", "spice", "SpiceAdmin","SpiceAdmin123")
+        my_conn.print_results(my_conn.find_all_items())
+        app.run(port=5000)
+    except pymongo.errors.OperationFailure:
+        print("Authentication error: The Username or Password is not valid")
 
 
