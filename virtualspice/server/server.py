@@ -19,6 +19,16 @@ def virtualspice():
 def get_foods_by_name(name):
     return dumps(my_conn.find_items_by_name(name))
 
+@app.route("/api/virtualspice/delete/<id>")
+def delete_foods_by_id(id):
+    my_conn.delete_single_item_from_db(id)
+    return None
+
+@app.route("/api/virtualspice/delete/all")
+def delete_all_foods():
+    my_conn.delete_all_items_from_db()
+    return None
+
 @app.route("/api/shoppinglist")
 def shoppinglist():
     return "shoppinglist"
