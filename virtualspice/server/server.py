@@ -1,9 +1,7 @@
 from flask import Flask, jsonify, request
 from DBConnection import DBConnection
 import pymongo
-
 from bson.json_util import dumps
-
 
 app = Flask(__name__)
 
@@ -16,6 +14,10 @@ except pymongo.errors.OperationFailure:
 @app.route("/api/virtualspice")
 def virtualspice():
     return dumps(my_conn.find_all_items())
+
+@app.route("/api/virtualspice/<name>")
+def get_foods_by_name(name):
+    return dumps(my_conn.find_items_by_name(name))
 
 @app.route("/api/shoppinglist")
 def shoppinglist():
