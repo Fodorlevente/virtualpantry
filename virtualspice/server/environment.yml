@@ -15,9 +15,11 @@ dependencies:
   - wincertstore=0.2=py37_0
   - pip:
     - click==7.0
+    - dnspython==1.16.0
     - flask==1.1.1
     - itsdangerous==1.1.0
     - jinja2==2.11.1
     - markupsafe==1.1.1
+    - pymongo==3.10.1
     - werkzeug==1.0.0
 
