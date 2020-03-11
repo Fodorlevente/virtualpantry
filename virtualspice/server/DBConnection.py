@@ -53,5 +53,5 @@ class DBConnection():
     def get_count_of_items_by_type(self, type: str):
         return self.collection.find({"type": type}).count()
 
-# my_conn = DBConnection("virtualspiceapp", "spice", "SpicesssAdmin","SpiceAdmin123")
+# my_conn = DBConnection("virtualspiceapp", "spice", "SpiceAdmin","SpiceAdmin123")
 # my_conn.print_results(my_conn.find_all_items())
