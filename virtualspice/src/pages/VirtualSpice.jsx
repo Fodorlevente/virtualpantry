@@ -13,7 +13,7 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(2),
     textAlign: 'center',
     color: theme.palette.text.secondary,
-  },
+  }
 }));
 
 export default function VirtualSpice() {
@@ -38,10 +38,10 @@ export default function VirtualSpice() {
   return (
     <div className={classes.root}>
       <Grid container spacing={3}>
-        <Grid item xs={6}>
+        <Grid item xs={2}>
             <FoodTypeCardContainer />
         </Grid>
-        <Grid item xs={6}>
+        <Grid item xs={10}>
             {_.isEmpty(pantry) ?
               <p>Pantry is is empty</p>
               :
