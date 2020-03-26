@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import FoodTypeCardContainer from '../components/cards/FoodTypeCardContainer';
+import FoodsTable from "../components/tables/FoodsTable";
+import _ from "lodash";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -16,7 +18,7 @@ const useStyles = makeStyles(theme => ({
 
 export default function VirtualSpice() {
   const classes = useStyles();
-  const [pantry, setPantry] = useState({});
+  const [pantry, setPantry] = useState([]);
 
   useEffect(() => {
     fetchFoodsFromAPI()
@@ -26,7 +28,6 @@ export default function VirtualSpice() {
     fetch('/api/virtualspice')
     .then(response => response.json())
     .then(data => {
-      console.log(data)
       setPantry(data);
     })
     .catch(error => {
@@ -41,7 +42,14 @@ export default function VirtualSpice() {
             <FoodTypeCardContainer />
         </Grid>
         <Grid item xs={6}>
-            {JSON.stringify(pantry)}
+            {_.isEmpty(pantry) ?
+              <p>Pantry is is empty</p>
+              :
+              <FoodsTable pantry={pantry}/>
+          }
+          {
+            console.log(`VirtualSpice: ${typeof(pantry)}`)
+          }
         </Grid>
       </Grid>
     </div>
