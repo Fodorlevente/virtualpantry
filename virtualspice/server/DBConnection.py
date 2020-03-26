@@ -45,7 +45,7 @@ class DBConnection():
             print(result)
 
     def get_count_of_all_items(self):
-        return self.collection.find.count()
+        return self.collection.count()
 
     def get_count_of_items_by_name(self, name: str):
         return self.collection.find({"name": name}).count()
@@ -55,3 +55,5 @@ class DBConnection():
 
 # my_conn = DBConnection("virtualspiceapp", "spice", "SpiceAdmin","SpiceAdmin123")
 # my_conn.print_results(my_conn.find_all_items())
+
+# print(my_conn.get_count_of_all_items())
