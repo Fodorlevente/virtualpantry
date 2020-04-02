@@ -47,9 +47,6 @@ export default function VirtualSpice() {
               :
               <FoodsTable pantry={pantry}/>
           }
-          {
-            console.log(`VirtualSpice: ${typeof(pantry)}`)
-          }
         </Grid>
       </Grid>
     </div>

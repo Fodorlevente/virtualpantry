@@ -38,8 +38,6 @@ export default function FoodsTable(props) {
       startIcon={<ShoppingCartIcon />}
     >
       Add
-
-      
     </Button>
     )
   }
@@ -59,14 +57,14 @@ export default function FoodsTable(props) {
           </TableRow>
         </TableHead>
         <TableBody>
-          {Object.keys(pantry).map((key,i) => (
+          {pantry.map((key,i) => (
             <TableRow key={i}>
               <TableCell component="th" scope="row">
-              {JSON.stringify(pantry[key].name)}
+              {key.name}
               </TableCell>
-              <TableCell align="right">{JSON.stringify(pantry[key].exp_date["$date"])}</TableCell>
-              <TableCell align="right">{JSON.stringify(pantry[key].location)}</TableCell>
-              <TableCell align="right">{JSON.stringify(pantry[key].date_of_shopping["$date"])}</TableCell>
+              <TableCell align="right">{key.exp_date["$date"]}</TableCell>
+              <TableCell align="right">{key.location}</TableCell>
+              <TableCell align="right">{key.date_of_shopping["$date"]}</TableCell>
               <TableCell align="right">{addMoveToShoppingListButton()}</TableCell>
               <TableCell align="right">{addDeleteButton()}</TableCell>
             </TableRow>
