@@ -3,9 +3,11 @@ import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
+import { NavLink } from "react-router-dom";
 import Button from '@material-ui/core/Button';
-// import IconButton from '@material-ui/core/IconButton';
-// import MenuIcon from '@material-ui/icons/Menu';
+import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
+import ListAltIcon from '@material-ui/icons/ListAlt';
+import StorefrontIcon from '@material-ui/icons/Storefront';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -17,6 +19,14 @@ const useStyles = makeStyles(theme => ({
   title: {
     flexGrow: 1,
   },
+  link: {
+    color: 'inherit',
+    textDecoration: 'none',
+    listStyle: 'none',
+    '&:focus, &:hover, &:visited, &:link, &:active': {
+      textDecoration: 'none'
+    }
+  }
 }));
 
 export default function Menu() {
@@ -26,16 +36,31 @@ export default function Menu() {
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
-          <Typography variant="h6" className={classes.title}>
-            Virtual Spice 
-          </Typography>
-          <Typography variant="h6" className={classes.title}>
-            Recepie
-          </Typography>
-          <Typography variant="h6" className={classes.title}>
-            Shopping List
-          </Typography>
-          <Button color="inherit">Login</Button>
+        <Button color="inherit" startIcon={<StorefrontIcon />}>
+          <NavLink to="/virtualspice" className={classes.link}>
+            <Typography variant="h6" className={classes.title}>
+                Virtual Spice 
+            </Typography>
+          </NavLink>
+        </Button>
+
+        <Button color="inherit" startIcon={<ListAltIcon />}>
+          <NavLink to="/recepie" className={classes.link}>
+            <Typography variant="h6" className={classes.title}>
+                Recepie
+            </Typography>
+          </NavLink>
+        </Button>
+
+        <Button color="inherit" startIcon={<ShoppingBasketIcon />}>
+          
+          <NavLink to="/shoppinglist" className={classes.link}>
+            <Typography variant="h6" className={classes.title}>
+                  Shopping List
+            </Typography>
+          </NavLink>
+        </Button>
+
         </Toolbar>
       </AppBar>
     </div>
