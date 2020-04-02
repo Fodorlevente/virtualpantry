@@ -38,8 +38,6 @@ export default function FoodsTable(props) {
       startIcon={<ShoppingCartIcon />}
     >
       Add
-
-      
     </Button>
     )
   }

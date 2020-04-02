@@ -1,47 +1,32 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
-import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles({
   root: {
-    maxWidth: 345,
-  },
-  media: {
-    height: 140,
-  },
+    maxWidth: 400,
+    maxHeight: 200,
+    margin: '15px',
+    background: `linear-gradient(45deg, ${generateRandomHexColors()} 30%, ${generateRandomHexColors()} 90%)`,
+    color: "white",
+    padding: 25
+  }
 });
+
+function generateRandomHexColors() {
+  return('#' + Math.random().toString(16).slice(2, 8).toUpperCase());
+}
 
 export default function FoodTypeCard(props) {
   const classes = useStyles();
 
   return (
-    <Card className={classes.root}>
-      <CardActionArea>
-        <CardMedia
-          className={classes.media}
-          image="/static/images/cards/contemplative-reptile.jpg"
-          title="Contemplative Reptile"
-        />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="h2">
-            {props.name}
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-      <CardActions>
-        <Button size="small" color="primary">
-          Share
-        </Button>
-        <Button size="small" color="primary">
-          Show More
-        </Button>
-      </CardActions>
+    <Card className={classes.root} raised>
+        <Typography variant="h5" align="center" component="h2">
+            {props.name}: 10 piece
+        </Typography> 
+         
     </Card>
   );
 }
