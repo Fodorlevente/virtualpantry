@@ -8,6 +8,7 @@ import Snackbar from '@material-ui/core/Snackbar';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close'
+import AddNewItemForm from '../components/forms/AddNewItemForm';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -70,6 +71,7 @@ export default function VirtualSpice() {
             <FoodTypeCardContainer />
         </Grid>
         <Grid item xs={10}>
+            <AddNewItemForm />
             {_.isEmpty(pantry) ?
               <p>Pantry is is empty</p>
               :
