@@ -1,15 +1,39 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import FoodTypeCard from './FoodTypeCard';
+import _ from 'lodash';
 
 export default function FoodTypeCardContainer() {
+    const [types, setTypes] = useState([])
 
-    let types = ['tartos', 'ital', 'romlando', 'dsadsa', 'dsadsad'];
+    useEffect(() => {
+        fetchTypesFromAPI()
+      }, [])
+
+    function fetchTypesFromAPI(){
+        fetch('/api/test')
+        .then(response => response.json())
+        .then(data => {
+            setTypes(data);
+        })
+        .catch(error => {
+            console.log(error)
+        })
+    }
+
 
   return (
    <div>
-       {types.map(function(item,i){
-           return <FoodTypeCard name={item} key={i}/>
-       })}
+        {_.isEmpty(types) ?
+        <p>There is no food types</p>
+        :
+        types.map((row) => {
+            return(
+                <div>
+                    <FoodTypeCard name={row.name} piece={row.piece}/>
+                </div>
+            )
+        })
+        }
    </div>
   );
 }

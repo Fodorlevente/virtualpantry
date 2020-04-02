@@ -8,7 +8,7 @@ const useStyles = makeStyles({
     maxWidth: 400,
     maxHeight: 200,
     margin: '15px',
-    background: `linear-gradient(45deg, ${generateRandomHexColors()} 30%, ${generateRandomHexColors()} 90%)`,
+    background: `${generateRandomHexColors()}`,
     color: "white",
     padding: 25
   }
@@ -24,7 +24,7 @@ export default function FoodTypeCard(props) {
   return (
     <Card className={classes.root} raised>
         <Typography variant="h5" align="center" component="h2">
-            {props.name}: 10 piece
+            {props.name}: {props.piece} piece
         </Typography> 
          
     </Card>
