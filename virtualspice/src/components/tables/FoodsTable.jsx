@@ -21,15 +21,19 @@ export default function FoodsTable(props) {
   const classes = useStyles();
   const pantry = props.pantry;
 
-  function addDeleteButton(){
+  function addDeleteButton(itemId){
     return ( 
-      <Button variant="contained" color="secondary">
+      <Button 
+        variant="contained" 
+        color="secondary"
+        onClick={() => {props.deleteItemWithId(`${itemId}`)}}
+        >
         Delete
       </Button>
     )
   }
 
-  function addMoveToShoppingListButton(){
+  function addMoveToShoppingListButton(itemId){
     return (
       <Button
       variant="contained"
@@ -42,18 +46,18 @@ export default function FoodsTable(props) {
     )
   }
 
-
   return (
     <TableContainer component={Paper}>
       <Table className={classes.table} size="small" aria-label="a dense table">
         <TableHead>
           <TableRow>
-            <TableCell>Name</TableCell>
-            <TableCell align="center">exp_date</TableCell>
-            <TableCell align="center">Location</TableCell>
-            <TableCell align="center">Date of shopping</TableCell>
-            <TableCell align="center">Shopping list</TableCell>
-            <TableCell align="center">Delete</TableCell>
+            <TableCell align="center"><strong>Name</strong></TableCell>
+            <TableCell align="center"><strong>Type</strong></TableCell>
+            <TableCell align="center"><strong>Expiration date</strong></TableCell>
+            <TableCell align="center"><strong>Location</strong></TableCell>
+            <TableCell align="center"><strong>Date of shopping</strong></TableCell>
+            <TableCell align="center"><strong>Shopping list</strong></TableCell>
+            <TableCell align="center"><strong>Delete</strong></TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -62,11 +66,12 @@ export default function FoodsTable(props) {
               <TableCell component="th" scope="row">
               {key.name}
               </TableCell>
+              <TableCell align="right">{key.type}</TableCell>
               <TableCell align="right">{key.exp_date["$date"]}</TableCell>
               <TableCell align="right">{key.location}</TableCell>
               <TableCell align="right">{key.date_of_shopping["$date"]}</TableCell>
-              <TableCell align="right">{addMoveToShoppingListButton()}</TableCell>
-              <TableCell align="right">{addDeleteButton()}</TableCell>
+              <TableCell align="right">{addMoveToShoppingListButton(key._id['$oid'])}</TableCell>
+              <TableCell align="right">{addDeleteButton(key._id['$oid'])}</TableCell>
             </TableRow>
           ))}
         </TableBody>

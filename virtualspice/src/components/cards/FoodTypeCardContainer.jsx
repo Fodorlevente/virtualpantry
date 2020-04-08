@@ -10,7 +10,7 @@ export default function FoodTypeCardContainer() {
       }, [])
 
     function fetchTypesFromAPI(){
-        fetch('/api/test')
+        fetch('/api/getcountoftypes')
         .then(response => response.json())
         .then(data => {
             setTypes(data);
